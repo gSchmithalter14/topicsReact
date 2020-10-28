@@ -1,0 +1,14 @@
+.card {
+  background-color: white;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_content {
+  display: flex;
+}
+
+.card_text_created{
+  display: flex;
+}

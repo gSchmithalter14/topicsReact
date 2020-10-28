@@ -4,13 +4,15 @@ const router = new Router();
 const {
   getTopics,
   postTopic,
-  likeTopic,
-  deleteTopic
+  deleteTopic,
+  voteUp,
+  voteDown
 } = require('./controllers/topic.controller');
 
 router.get('/topics', getTopics);
-router.post('/topic', postTopic);
-router.post('/like/:id', likeTopic);
-router.delete('/topic/:id', deleteTopic);
+router.post('/topics', postTopic);
+router.delete('/topics/:id', deleteTopic);
+router.put('/topics/:id/up', voteUp);
+router.put('/topics/:id/down', voteDown);
 
 module.exports = router;
