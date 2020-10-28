@@ -32,6 +32,20 @@ function App() {
     )
   }
 
+  const voteUp = (id) => {
+    fetch(`http://localhost:4000/topics/${id}/up`, {
+      method: 'PUT',
+      headers: {"Content-Type": "application/json"}
+    })
+  }
+
+  const voteDown = (id) => {
+    fetch(`http://localhost:4000/topics/${id}/down`, {
+      method: 'PUT',
+      headers: {"Content-Type": "application/json"}
+    })
+  }
+
   return (
     topics.length === 0 ? (
       <div className='app_container'>
@@ -42,7 +56,12 @@ function App() {
       ( 
       <div className='app_container'>
         <Form postTopic={postTopic}/>
-        <TopicList topics={topics} deletePost={deletePost}/>
+        <TopicList 
+          topics={topics} 
+          deletePost={deletePost} 
+          voteUp={voteUp}
+          voteDown={voteDown}
+        />
       </div>
       )
   )
